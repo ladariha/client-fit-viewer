@@ -148,7 +148,7 @@ Example of splitting commits:
 - `--no-verify`: Skip running the pre-commit checks (lint, build, generate:docs)
 
 ## Important Notes
-
+- By default, pre-commit checks (`yarn lint`, `yarn build`) will run to ensure code quality
 - By default, pre-commit checks (`pnpm lint`, `pnpm build`, `pnpm generate:docs`) will run to ensure code quality
 - If these checks fail, you'll be asked if you want to proceed with the commit anyway or fix the issues first
 - If specific files are already staged, the command will only commit those files
