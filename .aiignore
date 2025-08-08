@@ -1,0 +1,64 @@
+# AI ignore file for Junie / AI-assisted tools
+# This file helps exclude large or irrelevant files from AI context loading.
+# It does NOT affect Git. Patterns are similar to .gitignore.
+
+# Node & package managers
+node_modules/
+yarn.lock
+package-lock.json
+pnpm-lock.yaml
+
+# Build outputs / bundler caches
+.dist/
+dist/
+build/
+.vite/
+.cache/
+.eslintcache
+
+# TypeScript build info / temp
+*.tsbuildinfo
+node_modules/.tmp/
+
+# Test artifacts / coverage
+coverage/
+.nyc_output/
+__snapshots__/
+
+# Logs
+*.log
+logs/
+
+# Environment files (keep examples)
+.env*
+!.env.example
+
+# IDE/editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Source maps
+*.map
+
+# Large static assets in public (keep HTML/manifest)
+public/**/*.png
+public/**/*.jpg
+public/**/*.jpeg
+public/**/*.gif
+public/**/*.svg
+public/**/*.webp
+public/**/*.mp4
+public/**/*.mp3
+public/**/*.wav
+public/**/*.ogg
+public/**/*.woff
+public/**/*.woff2
+public/**/*.ttf
+public/**/*.otf
+
+# Misc caches
+.parcel-cache/
+.turbo/
+.sass-cache/
