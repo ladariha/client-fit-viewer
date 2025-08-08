@@ -200,6 +200,7 @@ Testing
 
 Authoring tests
 - File conventions: use .spec.tsx for React component tests and .test.ts for utilities.
+- Place <Component>.spec.tsx next to the component, import the component, render it, and assert via Testing Library. If the component imports CSS, no extra config is needed due to moduleNameMapper.
 - Renderer: prefer @testing-library/react render().
   - For components using routing, you can wrap in a router. The repo contains an example using BrowserRouter from react-router; for unit tests, MemoryRouter from react-router-dom is usually preferable.
 - Page Object pattern: create a <Component>PageObject extending BasePageObject to encapsulate selectors and actions. This keeps specs concise and reduces selector duplication.
@@ -211,14 +212,6 @@ Running tests locally (verified)
   - yarn test -- src/pages/Example/Example.spec.tsx
   - yarn test -- src/pages/Demo/Demo.spec.tsx
 - Coverage: yarn test --coverage (Jest default report). Configure collectCoverage in jest.config.js if you need project-wide metrics.
-
-Creating a new test (demonstrated during verification)
-- For a simple utility test (no React):
-  - Create src/utils/myUtil.ts and src/utils/myUtil.test.ts that imports it and asserts expected behavior.
-  - The repository was verified with a temporary example (sum) added under src/utils and executed successfully with yarn test.
-  - Remove temporary test files after verifying (see Cleanup).
-- For a component test:
-  - Place <Component>.spec.tsx next to the component, import the component, render it, and assert via Testing Library. If the component imports CSS, no extra config is needed due to moduleNameMapper.
 
 Jest/Vite/TS gotchas specific to this repo
 - Dual tsconfig setup: Vite uses tsconfig.app.json (bundler mode); Jest uses tsconfig.json (node resolution). When adding new language features or path aliases, ensure both environments work or configure ts-jest to point at a tailored tsconfig.
