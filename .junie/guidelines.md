@@ -158,6 +158,7 @@ Example of splitting commits:
 - Always reviews the commit diff to ensure the message matches the changes
 
 Creating new component
+- do not ever modify file main.tsx, if needed use new components in app.tsx or where else needed
 - place new component in src/components/<Component>
 - import and export from src/components/<Component>
 - always name the component file the same as the component (e.g., src/components/Button/Button.tsx)
