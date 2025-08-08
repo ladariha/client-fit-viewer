@@ -148,8 +148,7 @@ Example of splitting commits:
 - `--no-verify`: Skip running the pre-commit checks (lint, build, generate:docs)
 
 ## Important Notes
-- By default, pre-commit checks (`yarn lint`, `yarn build`) will run to ensure code quality
-- By default, pre-commit checks (`pnpm lint`, `pnpm build`, `pnpm generate:docs`) will run to ensure code quality
+- By default, pre-commit checks (`yarn lint`, `yarn test`, `yarn build`) will run to ensure code quality
 - If these checks fail, you'll be asked if you want to proceed with the commit anyway or fix the issues first
 - If specific files are already staged, the command will only commit those files
 - If no files are staged, it will automatically stage all modified and new files
@@ -166,6 +165,7 @@ Creating new component
 - if component needs extra files, place them in the same directory as the component (e.g., src/components/Button/useSomeHook.ts)
 - if hook seems to have potential to be used in other components, place it into src/hooks folder
 - keep component files as small as possible, extract logic to hooks if needed
+- always create tests for new components
 
 TypeScript configuration
 - tsconfig.app.json is optimized for bundler mode (moduleResolution: bundler, verbatimModuleSyntax, jsx: react-jsx). This is used for the app build via Vite.
@@ -183,6 +183,7 @@ Linting & code style
 - Commands: yarn lint and yarn lint:fix.
 - prefer arrow functions
 - prefer async/await
+- always cover new code with tests
 
 Testing
 - Framework: Jest 29 with testEnvironment: jsdom via ts-jest transform for .ts/.tsx.
