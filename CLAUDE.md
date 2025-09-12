@@ -1,7 +1,7 @@
-Project-specific development guidelines
+# Project-specific development guidelines
 
-Build and runtime
-- Tooling: Vite 6 (React plugin), TypeScript 5.8, React 19, React Router DOM 7. 
+## Build and runtime
+- Tooling: Vite 6 (React plugin), TypeScript 5.8, React 19, React Router DOM 7.
 - Node.js: Use Node 18+ (recommended 20+) to match Vite 6 and Jest 29+ compatibility.
 - Development: yarn dev starts Vite dev server. Entry is index.html mounting src/main.tsx. React StrictMode is enabled.
 - Production build: yarn build runs tsc -b then vite build.
@@ -9,7 +9,7 @@ Build and runtime
   - Vite uses vite.config.ts with @vitejs/plugin-react (Babel Fast Refresh).
 - Preview: yarn preview serves the Vite production build.
 
-Git
+## Git
 - always start git branch from main, never push to main directly
 - always use git push --force-with-lease
 - use git commit -m "..." to commit changes
@@ -17,8 +17,7 @@ Git
 - use git pull origin <branch> to pull changes
 - use git checkout -b <branch> to create a new branch
 - use git checkout <branch> to switch to an existing branch
-- use git merge <branch> to merge a branch into the current one
-- use git rebase <branch> to rebase the current branch on top of another
+- use git rebase <branch> to rebase the current branch on top of another, do not use merge, in case of conflicts abort the rebase and let me know
 - use git rebase --abort to abort a rebase
 - use git rebase --continue to continue a rebase
 
@@ -38,70 +37,7 @@ Git
     - `chore`: Changes to the build process, tools, etc.
 - **Present tense, imperative mood**: Write commit messages as commands (e.g., "add feature" not "added feature")
 - **Concise first line**: Keep the first line under 72 characters
-- **Emoji**: Each commit type is paired with an appropriate emoji:
-    - ✨ `feat`: New feature
-    - 🐛 `fix`: Bug fix
-    - 📝 `docs`: Documentation
-    - 💄 `style`: Formatting/style
-    - ♻️ `refactor`: Code refactoring
-    - ⚡️ `perf`: Performance improvements
-    - ✅ `test`: Tests
-    - 🔧 `chore`: Tooling, configuration
-    - 🚀 `ci`: CI/CD improvements
-    - 🗑️ `revert`: Reverting changes
-    - 🧪 `test`: Add a failing test
-    - 🚨 `fix`: Fix compiler/linter warnings
-    - 🔒️ `fix`: Fix security issues
-    - 👥 `chore`: Add or update contributors
-    - 🚚 `refactor`: Move or rename resources
-    - 🏗️ `refactor`: Make architectural changes
-    - 🔀 `chore`: Merge branches
-    - 📦️ `chore`: Add or update compiled files or packages
-    - ➕ `chore`: Add a dependency
-    - ➖ `chore`: Remove a dependency
-    - 🌱 `chore`: Add or update seed files
-    - 🧑‍💻 `chore`: Improve developer experience
-    - 🧵 `feat`: Add or update code related to multithreading or concurrency
-    - 🔍️ `feat`: Improve SEO
-    - 🏷️ `feat`: Add or update types
-    - 💬 `feat`: Add or update text and literals
-    - 🌐 `feat`: Internationalization and localization
-    - 👔 `feat`: Add or update business logic
-    - 📱 `feat`: Work on responsive design
-    - 🚸 `feat`: Improve user experience / usability
-    - 🩹 `fix`: Simple fix for a non-critical issue
-    - 🥅 `fix`: Catch errors
-    - 👽️ `fix`: Update code due to external API changes
-    - 🔥 `fix`: Remove code or files
-    - 🎨 `style`: Improve structure/format of the code
-    - 🚑️ `fix`: Critical hotfix
-    - 🎉 `chore`: Begin a project
-    - 🔖 `chore`: Release/Version tags
-    - 🚧 `wip`: Work in progress
-    - 💚 `fix`: Fix CI build
-    - 📌 `chore`: Pin dependencies to specific versions
-    - 👷 `ci`: Add or update CI build system
-    - 📈 `feat`: Add or update analytics or tracking code
-    - ✏️ `fix`: Fix typos
-    - ⏪️ `revert`: Revert changes
-    - 📄 `chore`: Add or update license
-    - 💥 `feat`: Introduce breaking changes
-    - 🍱 `assets`: Add or update assets
-    - ♿️ `feat`: Improve accessibility
-    - 💡 `docs`: Add or update comments in source code
-    - 🗃️ `db`: Perform database related changes
-    - 🔊 `feat`: Add or update logs
-    - 🔇 `fix`: Remove logs
-    - 🤡 `test`: Mock things
-    - 🥚 `feat`: Add or update an easter egg
-    - 🙈 `chore`: Add or update .gitignore file
-    - 📸 `test`: Add or update snapshots
-    - ⚗️ `experiment`: Perform experiments
-    - 🚩 `feat`: Add, update, or remove feature flags
-    - 💫 `ui`: Add or update animations and transitions
-    - ⚰️ `refactor`: Remove dead code
-    - 🦺 `feat`: Add or update code related to validation
-    - ✈️ `feat`: Improve offline support
+- do not use emojis in commit message
 
 ## Guidelines for Splitting Commits
 
@@ -115,36 +51,13 @@ When analyzing the diff, consider splitting commits based on these criteria:
 
 ## Examples
 
-Good commit messages:
-- ✨ feat: add user authentication system
-- 🐛 fix: resolve memory leak in rendering process
-- 📝 docs: update API documentation with new endpoints
-- ♻️ refactor: simplify error handling logic in parser
-- 🚨 fix: resolve linter warnings in component files
-- 🧑‍💻 chore: improve developer tooling setup process
-- 👔 feat: implement business logic for transaction validation
-- 🩹 fix: address minor styling inconsistency in header
-- 🚑️ fix: patch critical security vulnerability in auth flow
-- 🎨 style: reorganize component structure for better readability
-- 🔥 fix: remove deprecated legacy code
-- 🦺 feat: add input validation for user registration form
-- 💚 fix: resolve failing CI pipeline tests
-- 📈 feat: implement analytics tracking for user engagement
-- 🔒️ fix: strengthen authentication password requirements
-- ♿️ feat: improve form accessibility for screen readers
-
-Example of splitting commits:
-- First commit: ✨ feat: add new solc version type definitions
-- Second commit: 📝 docs: update documentation for new solc versions
-- Third commit: 🔧 chore: update package.json dependencies
-- Fourth commit: 🏷️ feat: add type definitions for new API endpoints
-- Fifth commit: 🧵 feat: improve concurrency handling in worker threads
-- Sixth commit: 🚨 fix: resolve linting issues in new code
-- Seventh commit: ✅ test: add unit tests for new solc version features
-- Eighth commit: 🔒️ fix: update dependencies with security vulnerabilities
+### Good commit messages:
+-  feat: add user authentication system
+-  fix: resolve memory leak in rendering process
+-  docs: update API documentation with new endpoints
+-  fix: resolve linter warnings in component files
 
 ## Command Options
-
 - `--no-verify`: Skip running the pre-commit checks (lint, build, generate:docs)
 
 ## Important Notes
@@ -157,8 +70,8 @@ Example of splitting commits:
 - If suggesting multiple commits, it will help you stage and commit the changes separately
 - Always reviews the commit diff to ensure the message matches the changes
 
-Creating new component
-- do not ever modify file main.tsx, if needed use new components in app.tsx or where else needed 
+## Creating new component
+- do not ever modify file main.tsx, if needed use new components in app.tsx or where else needed
 - place new component in src/components/<Component>
 - import and export from src/components/<Component>
 - always name the component file the same as the component (e.g., src/components/Button/Button.tsx)
@@ -168,14 +81,14 @@ Creating new component
 - keep component files as small as possible, extract logic to hooks if needed
 - always create tests for new components
 
-TypeScript configuration
+## TypeScript configuration
 - tsconfig.app.json is optimized for bundler mode (moduleResolution: bundler, verbatimModuleSyntax, jsx: react-jsx). This is used for the app build via Vite.
 - tsconfig.json is more Jest/Node-friendly (moduleResolution: node, target es5) and is what ts-jest will typically pick up. Keep this split in mind:
   - App code should compile and type-check under both configs.
   - If you add TS path aliases or lib options for app build, mirror any changes needed by Jest into tsconfig.json (or point ts-jest to a custom tsconfig if you add one).
 - always specify parameters' types in function signatures and return values
 
-Linting & code style
+## Linting & code style
 - ESLint flat config (eslint.config.js):
   - Base: @eslint/js recommended plus typescript-eslint recommended.
   - React: eslint-plugin-react flat.recommended with react/react-in-jsx-scope and react/jsx-uses-react turned off for React 17+ JSX runtime.
@@ -186,7 +99,7 @@ Linting & code style
 - prefer async/await
 - always cover new code with tests
 
-Testing
+## Testing
 - Framework: Jest 29 with testEnvironment: jsdom via ts-jest transform for .ts/.tsx.
 - Setup: src/jest.setup.ts
   - Extends @testing-library/jest-dom matchers.
@@ -200,7 +113,7 @@ Testing
 - Scripts:
   - yarn test runs Jest once. You can pass flags, e.g., yarn test --coverage or yarn test -- src/pages/Example/Example.spec.tsx.
 
-Authoring tests
+### Authoring tests
 - File conventions: use .spec.tsx for React component tests and .test.ts for utilities.
 - Place <Component>.spec.tsx next to the component, import the component, render it, and assert via Testing Library. If the component imports CSS, no extra config is needed due to moduleNameMapper.
 - Renderer: prefer @testing-library/react render().
@@ -208,24 +121,24 @@ Authoring tests
 - Page Object pattern: create a <Component>PageObject extending BasePageObject to encapsulate selectors and actions. This keeps specs concise and reduces selector duplication.
 - Async assertions: use waitFor for state updates and user-event for interactions.
 
-Running tests locally (verified)
+### Running tests locally (verified)
 - Baseline suite currently passes: Demo.spec.tsx and Example.spec.tsx.
 - Example focused runs:
   - yarn test -- src/pages/Example/Example.spec.tsx
   - yarn test -- src/pages/Demo/Demo.spec.tsx
 - Coverage: yarn test --coverage (Jest default report). Configure collectCoverage in jest.config.js if you need project-wide metrics.
 
-Jest/Vite/TS gotchas specific to this repo
+## Jest/Vite/TS gotchas specific to this repo
 - Dual tsconfig setup: Vite uses tsconfig.app.json (bundler mode); Jest uses tsconfig.json (node resolution). When adding new language features or path aliases, ensure both environments work or configure ts-jest to point at a tailored tsconfig.
 - Encoding APIs: If adding libs requiring TextEncoder/TextDecoder, jest.setup.ts already polyfills; keep that file as the single place for such jsdom polyfills.
 - Router imports: Prefer react-router-dom for web components; in tests, MemoryRouter from react-router-dom helps avoid real navigation. Align new code to this to reduce confusion.
 
-Build/CI suggestions
+## Build/CI suggestions
 - Type checking in build: yarn build already enforces TS checks via tsc -b before bundling.
 - If you add CI, run in this order for fast feedback and consistent results:
   1) yarn lint
-  2) yarn test --coverage
+  2) yarn test
   3) yarn build
 
-Cleanup after test demonstrations
+## Cleanup after test demonstrations
 - As a practice, remove any temporary test/demo files added purely to validate the pipeline, keeping the repo clean. Only persist meaningful test coverage.
